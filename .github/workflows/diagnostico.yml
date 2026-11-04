@@ -2,7 +2,7 @@ name: Diagnostico
 on: workflow_dispatch
 jobs:
   entorno:
-    runs-on: ubuntu-latest
+runs-on: ubuntu-latest
     steps:
       - run: php -v
       - run: node --version
