@@ -4,5 +4,6 @@ jobs:
   entorno:
     runs-on: ubuntu-latest
     steps:
-      - run: php -v
-      - run: node --version
+      - run: ls
+      - uses: actions/checkout@v4
+      - uses: ls
