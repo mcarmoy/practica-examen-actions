@@ -40,5 +40,5 @@ jobs:
           php -m | grep -i sqlite
 
       - name: Comprobar si existe README.md
-        run: test -f NOEXISTE.md
+        run: test -f README.md
           
