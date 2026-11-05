@@ -4,13 +4,31 @@ jobs:
   entorno:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: shivammathur/setup-php@v2
+      - name: Descargar codigo
+        uses: actions/checkout@v7
+
+      - name: Instalar PHP
+        id: configurar_php
+        uses: shivammathur/setup-php@v2
         with:
           php-version: '8.4'
-      - run: php -v
-      - uses: actions/setup-node@v7.1.0
+          extensions: pdo_sqlite
+
+      - name: Ver version de PHP
+        run: |
+          echo "La version de PHP instalada es:"
+          echo "${{ steps.configurar_php.outputs.php-version }}"
+
+      - name: Instalar Node
+        uses: actions/setup-node@v7.1.0
         with:
           node-version: '24'
-      - run: node --version
+
+      - name: Ver version de Node
+        run: node --version
+
+      - name: Comprobar entorno
+        run: |
+          php -v
+          php -m | grep -i sqlite
           
