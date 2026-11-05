@@ -1,5 +1,12 @@
 name: Diagnostico
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  
 jobs:
   entorno:
     runs-on: ubuntu-latest
@@ -30,5 +37,8 @@ jobs:
       - name: Comprobar entorno
         run: |
           php -v
-          php -m | grep -i noexiste
+          php -m | grep -i sqlite
+
+      - name: Comprobar si existe README.md
+        run: test -f README.md
           
