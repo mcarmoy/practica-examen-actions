@@ -1,0 +1,5 @@
+name: Comprobar archivo (JavaScript)
+description: Compruba index.php usando Node.js
+runs:
+  using: node24
+  main: index.js
