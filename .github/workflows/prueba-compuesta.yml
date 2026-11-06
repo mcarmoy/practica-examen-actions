@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Obtener repositorio
-        uses: actions/chechout@v7
+        uses: actions/checkout@v7
 
       - name: Ejecutar nuestra accion
         uses: ./.github/actions/comprobar-compuesta
