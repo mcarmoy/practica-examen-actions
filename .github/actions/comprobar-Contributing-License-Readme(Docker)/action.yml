@@ -1,0 +1,5 @@
+name: Comprobar 3 archivos (Docker)
+description: Comprobar si existen los archivos LICENSE, CONTRIBUTING Y README
+runs:
+  using: docker
+  image: Dockerfile
