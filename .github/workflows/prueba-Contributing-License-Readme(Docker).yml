@@ -1,0 +1,13 @@
+name: Comprobar los 3 archivos (Docker)
+on:
+  workflow_dispatch:
+
+jobs:
+  comprobar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener repositorio
+        uses: actions/checkout@v7
+
+      - name: Ejecutar nuestra accion
+        uses: ./.github/actions/comprobar-Contributing-License-Readme(Docker)
