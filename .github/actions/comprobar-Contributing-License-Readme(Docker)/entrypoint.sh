@@ -1,0 +1,28 @@
+#!/bin/sh
+FALTA=0
+ARCHIVOSFALTAN=""
+if [ -f README.md ]; then
+  echo "OK: existe README.md"
+else
+  echo "ERROR: falta README.md"
+  FALTA=1
+  ARCHIVOSFALTAN="$ARCHIVOSFALTAN README.md"
+fi
+if [ -f CONTRIBUTING.md ]; then
+  echo "OK: existe CONTRIBUTING.md"
+else
+  echo "ERROR: falta CONTRIBUTING.md"
+  FALTA=1
+  ARCHIVOSFALTAN="$ARCHIVOSFALTAN CONTRIBUTING.md"
+fi
+if [ -f LICENSE ]; then
+  echo "OK: existe LICENSE"
+else
+  echo "ERROR: falta LICENSE"
+  FALTA=1
+  ARCHIVOSFALTAN="$ARCHIVOSFALTAN LICENSE"
+fi
+if [ "$FALTA" -eq 1 ]; then
+  echo "Faltan los archivos: $ARCHIVOSFALTAN"
+  exit 1
+fi
