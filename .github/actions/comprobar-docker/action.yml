@@ -1,0 +1,5 @@
+name: Comprobar archivo (Docker)
+description: Comprobar index.php dentro de un contenedor
+runs:
+  using: docker
+  image: Dockerfile
