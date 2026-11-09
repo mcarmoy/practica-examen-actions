@@ -1,0 +1,13 @@
+name: Prueba concurrencia
+on: workflow_dispatch
+
+concurrency:
+  group: prueba-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lento:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 60
+      - run: echo "Ha terminado"
