@@ -1,0 +1,14 @@
+name: Probar 2 jobs
+on:
+  workflow_dispatch:
+
+jobs:
+  uno:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Soy el job uno"
+
+  dos:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Soy el job dos"
