@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Soy el job dos"
+      - run: exit 1
 
   final:
     needs: [ uno, dos]
