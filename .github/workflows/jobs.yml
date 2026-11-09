@@ -12,3 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Soy el job dos"
+
+  final:
+    needs: [ uno, dos]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Uno y dos han terminado bien"
