@@ -11,7 +11,7 @@ jobs:
         run: echo "Hola, este archivo lo ha creadio Github Actions" > saludo.txt
 
       - name: Guardar como artefacto
-        uses: actios/upload-artifact@v7
+        uses: actions/upload-artifact@v7
         with:
           name: mi-saludo
           path: saludo.txt
