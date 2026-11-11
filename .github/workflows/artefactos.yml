@@ -1,0 +1,29 @@
+name: Mi primer artefacto
+
+on:
+  workflow_dispatch:
+
+jobs:
+  crear:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Crear saludo
+        run: echo "Hola, este archivo lo ha creadio Github Actions" > saludo.txt
+
+      - name: Guardar como artefacto
+        uses: actios/upload-artifact@v7
+        with:
+          name: mi-saludo
+          path: saludo.txt
+
+  leer:
+    needs: crear
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperar artefacto
+        uses: actions/download-artifact@v8
+        with:
+          name: mi-saludo
+
+      - name: Mostrar el saludo
+        run: cat saludo.txt
