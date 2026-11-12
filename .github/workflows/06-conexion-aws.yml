@@ -1,0 +1,21 @@
+name: 06 - Comprobar secretos AWS
+on: workflow_dispatch
+
+permissions: 
+  contents: read
+
+jobs:
+  aws:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Autenticarse en AWS con secrets
+        uses: aws-actions/configure-aws-credentials@v6.3.0
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Verificar identidad (sin mostrar claves)
+        run: aws sts get-caller-identity
+  
