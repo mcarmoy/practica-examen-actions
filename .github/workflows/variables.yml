@@ -1,0 +1,16 @@
+name: Usando variables
+on:
+  workflow_dispatch:
+
+jobs:
+  usoVariables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar configuracion
+        env:
+          APP_NAME: ${{ vars.APP_NAME }}
+          APP_ENV: ${{ vars.APP_ENV }}
+        run: |
+          echo "Aplicación: $APP_NAME"
+          echo "Entorno: $APP_ENV"
+        
